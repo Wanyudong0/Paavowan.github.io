@@ -19,6 +19,24 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Hadoop学习（1）</title>
+    <url>/2020/09/16/Hadoop%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h2 id="Linux-免密登陆"><a href="#Linux-免密登陆" class="headerlink" title="Linux 免密登陆"></a>Linux 免密登陆</h2><ol>
+<li>在终端生成密钥，命令：<br>‘ssh-keygen -t rsa’</li>
+<li>密钥会生成在ssh的子目录中，需要修改其文件权限</li>
+<li>安装相应的jdk，修改环境变量并使其生效</li>
+<li>安装部署Hadoop集群 配置hadoop-env.sh文件 core-sit.xml文件 配置hdfs-site.xml文件</li>
+<li>配置Hadoop环境变量 格式化Hadoop文件目录 启动集群</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Hadoop学习</category>
+      </categories>
+      <tags>
+        <tag>Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo博客搭建</title>
     <url>/2020/09/12/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
     <content><![CDATA[<h2 id="第一章-主题修改生效"><a href="#第一章-主题修改生效" class="headerlink" title="第一章 主题修改生效"></a>第一章 主题修改生效</h2><p>配置主题文件后，到hexo根目录下，hexo clean 清理缓存，hexo g ，hexo s</p>
