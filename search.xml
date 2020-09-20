@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/08/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Hadoop学习（1）</title>
     <url>/2020/09/16/Hadoop%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h2 id="Linux-免密登陆"><a href="#Linux-免密登陆" class="headerlink" title="Linux 免密登陆"></a>Linux 免密登陆</h2><ol>
@@ -35,6 +17,50 @@
       <tags>
         <tag>Hadoop</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>win主机与linu虚拟机文件共享</title>
+    <url>/2020/09/20/win%E4%B8%BB%E6%9C%BA%E4%B8%8Elinu%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/</url>
+    <content><![CDATA[<h2 id="一、在虚拟机中的设置"><a href="#一、在虚拟机中的设置" class="headerlink" title="一、在虚拟机中的设置"></a>一、在虚拟机中的设置</h2><p>1.在VMWare中安装VM Tools</p>
+<p>2.进入终端，将tools压缩包解压：tar -zxvf</p>
+<p>3.管理员模式下执行./vmware-install.pl（安装过程中一直按enter即可）</p>
+<hr>
+<h2 id="二、设置需要共享的文件"><a href="#二、设置需要共享的文件" class="headerlink" title="二、设置需要共享的文件"></a>二、设置需要共享的文件</h2><p>1.将虚拟机关机</p>
+<p>2.在VMware虚拟机窗口，选择VM-&gt;Settings-&gt;Options-&gt;Shared Folders</p>
+<p>3.点右边的Add，点Next-&gt;选择主机win上的共享目录的路径，然后点Next-&gt;选中Enable this share-&gt;Finish</p>
+<p>4.在VM-&gt;Settings-&gt;Options-&gt;Shared Folders窗口的右边，Folder sharing栏里选择Always enabled</p>
+<p>5.确定退出</p>
+<hr>
+<h2 id="三、在unbutu虚拟机中安装插件"><a href="#三、在unbutu虚拟机中安装插件" class="headerlink" title="三、在unbutu虚拟机中安装插件"></a>三、在unbutu虚拟机中安装插件</h2><p>1.在管理员模式下执行：apt-get install open-vm-tools(若已安装tool，就不用了执行这一步)</p>
+<p>2.执行 sudo mount -t vmhgfs . host:/ /mnt/hgfs</p>
+<p>至此就可以在/mnt/hgfs目录下看到Win10的共享文件夹目录。无论在linux还是在Win7下修改共享文件夹里的文件，都会在另一个系统同时修改。</p>
+<hr>
+<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><p>sudo apt-get install open-vm-tools<br>sudo mkdir /mnt/hgfs（在虚拟机创建一个可以查看共享文件的目录）<br>sudo mount -t vmhgfs .host:/ /mnt/hgfs（注意空格）</p>
+]]></content>
+      <categories>
+        <category>虚拟机问题</category>
+      </categories>
+      <tags>
+        <tag>VMWare</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/08/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>hexo博客搭建</title>
