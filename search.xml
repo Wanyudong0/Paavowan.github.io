@@ -45,6 +45,32 @@
       </tags>
   </entry>
   <entry>
+    <title>pyecharts</title>
+    <url>/2020/10/09/pyecharts/</url>
+    <content><![CDATA[<h3 id="CSS-normal布局"><a href="#CSS-normal布局" class="headerlink" title="CSS normal布局"></a>CSS normal布局</h3><p>  默认为此布局，在正常流中，元素盒子（boxes）会基于文档的写作模式（writing mode）一个接一个地排列。这就意味着，如果你的写作模式是水平方向的（句子是从左到右或从右到左书写），正常流会垂直地一个接一个排列页面的块级元素。</p>
+<p>  正常流是一种最基础的布局：当你为文档应用了CSS、创建了某些CSS布局，你其实是让这些块做了一个正常文档流之外的“事”。</p>
+<hr>
+<h2 id="Bar图设计"><a href="#Bar图设计" class="headerlink" title="Bar图设计"></a>Bar图设计</h2><ul>
+<li><p><strong>图元设置</strong> 设置bar图元<br>‘borderColor’  <em>描边颜色（可以用rgb，也可以16进制）</em><br>‘shadowColor’  <em>阴影颜色</em><br>‘shadowBlur’   <em>阴影模糊级数</em><br>‘opacity’     <em>图形透明度</em></p>
+</li>
+<li><p><strong>标签格式设置</strong> 设置需要展示的信息格式<br>position   <em>设置标签在图形里还是外</em><br>font_size            <em>设置标签字体大小</em><br>font_weight   <em>设置标签字体形式</em><br>color        <em>设置标签字体颜色</em><br>formatter=’{b}:{c}’    <em>设置标签展示格式（b为索引，c为数值)</em>  </p>
+</li>
+<li><p><strong>全局设置</strong><br> x/y axis_opts     <em>关于坐标轴的设置</em><br> title_opts        <em>关于标题的设置</em><br> visualmap_opts   <em>关于视觉映像的设置</em></p>
+</li>
+</ul>
+<hr>
+<h3 id="关于视觉映射"><a href="#关于视觉映射" class="headerlink" title="关于视觉映射"></a>关于视觉映射</h3><p><a href="https://www.runoob.com/echarts/echarts-visualmap.html">echarts视觉映射</a></p>
+<hr>
+<h3 id="bar图代码"><a href="#bar图代码" class="headerlink" title="bar图代码"></a>bar图代码</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">bar = Bar()</span><br><span class="line">bar.add_xaxis([x <span class="keyword">for</span> x, y <span class="keyword">in</span> t])</span><br><span class="line">bar.add_yaxis(<span class="string">&quot;&quot;</span>, [y <span class="keyword">for</span> x, y <span class="keyword">in</span> t],<span class="comment">#图元样式设置</span></span><br><span class="line">              itemstyle_opts=&#123;<span class="string">&#x27;normal&#x27;</span>: &#123;<span class="string">&#x27;borderColor&#x27;</span>: <span class="string">&#x27;#56c317&#x27;</span>,<span class="comment">#描边颜色</span></span><br><span class="line">                                         <span class="string">&#x27;shadowColor&#x27;</span>: <span class="string">&#x27;#1773c3&#x27;</span>,<span class="comment">#阴影颜色</span></span><br><span class="line">                                         <span class="string">&#x27;shadowBlur&#x27;</span>: <span class="number">20</span>,<span class="comment">#阴影模糊级数</span></span><br><span class="line">                                         <span class="string">&#x27;opacity&#x27;</span>: <span class="number">0.8</span><span class="comment">#图形透明度</span></span><br><span class="line">                                         &#125;</span><br><span class="line">                              &#125;)</span><br><span class="line"><span class="comment"># 标签格式设置</span></span><br><span class="line">bar.set_series_opts(label_opts=opts.LabelOpts(position=<span class="string">&quot;insideLeft&quot;</span>,<span class="comment">#标签在图形里</span></span><br><span class="line">                                              font_size=<span class="number">10</span>,<span class="comment">#标签大小</span></span><br><span class="line">                                              font_weight=<span class="string">&#x27;lighter&#x27;</span>,<span class="comment">#标签字体</span></span><br><span class="line">                                              color=<span class="string">&#x27;#ebff12&#x27;</span>,</span><br><span class="line">                                              formatter=<span class="string">&#x27;&#123;b&#125;:&#123;c&#125;&#x27;</span>))<span class="comment">#标签格式</span></span><br><span class="line"><span class="comment"># 全局配置项</span></span><br><span class="line">bar.set_global_opts(xaxis_opts=opts.AxisOpts(is_show=<span class="literal">False</span>, max_=<span class="number">1e7</span>),<span class="comment">#不显示x,y轴</span></span><br><span class="line">                    yaxis_opts=opts.AxisOpts(is_show=<span class="literal">False</span>),</span><br><span class="line">                    title_opts=opts.TitleOpts(title=<span class="string">&quot;TOP 10&quot;</span>, pos_top=<span class="string">&#x27;55%&#x27;</span>, pos_left=<span class="string">&#x27;5%&#x27;</span>,</span><br><span class="line">                                              title_textstyle_opts=opts.TextStyleOpts(font_size=<span class="number">12</span>)),<span class="comment">#标题设置</span></span><br><span class="line">                    visualmap_opts=opts.VisualMapOpts(is_show=<span class="literal">False</span>,<span class="comment">#视觉映像设置</span></span><br><span class="line">                                                      max_=<span class="number">1e6</span>,</span><br><span class="line">                                                      is_piecewise=<span class="literal">False</span>,<span class="comment">#不设置为分段</span></span><br><span class="line">                                                      dimension=<span class="number">0</span>,</span><br><span class="line">                                                      range_color=[<span class="string">&#x27;rgba(219,112,147,0.4)&#x27;</span>, <span class="string">&#x27;rgba(238,25,27,0.9)&#x27;</span>, <span class="string">&#x27;rgba(238,25,27,1)&#x27;</span>]))</span><br><span class="line"><span class="comment"># 转换xy轴</span></span><br><span class="line">bar.reversal_axis()</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>数据可视化</category>
+      </categories>
+      <tags>
+        <tag>数据可视化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2020/08/02/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
