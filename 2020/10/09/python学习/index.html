@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    pyecharts |  
+    python学习 |  
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -44,7 +44,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-pyecharts"
+  id="post-python学习"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -55,18 +55,18 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  pyecharts
+  python学习
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/10/09/pyecharts/" class="article-date">
-  <time datetime="2020-10-09T06:44:56.000Z" itemprop="datePublished">2020-10-09</time>
+      <a href="/2020/10/09/python%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2020-10-09T07:38:54.000Z" itemprop="datePublished">2020-10-09</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a>
+    <a class="article-category-link" href="/categories/python/">python</a>
   </div>
   
 <div class="word_count">
@@ -74,7 +74,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">540</span>
+            <span class="post-count">1.4k</span>
         </span>
     </span>
 
@@ -83,36 +83,72 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
-    <div class="tocbot"></div>
-
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h3 id="CSS-normal布局"><a href="#CSS-normal布局" class="headerlink" title="CSS normal布局"></a>CSS normal布局</h3><p>  默认为此布局，在正常流中，元素盒子（boxes）会基于文档的写作模式（writing mode）一个接一个地排列。这就意味着，如果你的写作模式是水平方向的（句子是从左到右或从右到左书写），正常流会垂直地一个接一个排列页面的块级元素。</p>
-<p>  正常流是一种最基础的布局：当你为文档应用了CSS、创建了某些CSS布局，你其实是让这些块做了一个正常文档流之外的“事”。</p>
-<hr>
-<h2 id="Bar图设计"><a href="#Bar图设计" class="headerlink" title="Bar图设计"></a>Bar图设计</h2><ul>
-<li><p><strong>图元设置</strong> 设置bar图元<br>‘borderColor’  <em>描边颜色（可以用rgb，也可以16进制）</em><br>‘shadowColor’  <em>阴影颜色</em><br>‘shadowBlur’   <em>阴影模糊级数</em><br>‘opacity’     <em>图形透明度</em></p>
+  <ol>
+<li><p>loc iloc ix区别：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = pd.DataFrame(&#123;<span class="string">&#x27;A&#x27;</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],<span class="string">&#x27;B&#x27;</span>:[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],<span class="string">&#x27;C&#x27;</span>:[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]&#125;,index=[<span class="string">&quot;a&quot;</span>,<span class="string">&quot;b&quot;</span>,<span class="string">&quot;c&quot;</span>])</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+
+<p> A   B   C<br> a   1   4   7<br> b   2   5   8<br> c   3   6   9<br> <em>loc的使用：</em><br> loc[],中括号里面是先行后列，以逗号分割，行和列分别是行标签和列标签，比如我要得到数字5，那么就就是：<br> <code>data.loc[&quot;b&quot;,&quot;B&quot;]</code><br> 因为行标签为b，列标签为B，同理，那么4就是data[“a”,”B”]<br> 上面只是选择某一个值，那么如果我要选择一个区域呢，比如我要选择5，8，6，9，那么可以这样做：<br> <code>data.loc[&#39;b&#39;:&#39;c&#39;,&#39;B&#39;:&#39;C&#39;]</code><br> .loc针对的是坐标轴索引已知道的情况，若不知道索引名，应该使用.iloc</p>
+<p> <em>iloc的使用：</em><br> .iloc[]与loc一样，中括号里面也是先行后列，行列标签用逗号分割，与loc不同的之处是，.iloc 是根据行数与列数来索引的，比如上面提到的得到数字5，那么用iloc来表示就是data.iloc[1,1],因为5是第2行第2列，注意索引从0开始的，同理4就是data.iloc[0,1]，同样如果我们需要选择一个区域，比如我要选择5，8，6，9，那么用,iloc来选择就是<br> <code>data.iloc[1:3,1:3]</code><br> 因为5在第二行第二列，9在第三行第三列，注意此处区间前闭后开，所以是1：3，与loc不同的是loc前闭后闭，以及loc是根据行列标签，而.iloc是根据行数与列数(iloc类似于切片)</p>
+<p> <em>ix的使用：</em><br> .ix我发现，上面两种用法他都可以，它既可以根据行列标签又可以根据行列数，比如拿到5<br> <code>data.ix[1,1]</code><br> <code>data.ix[&quot;b&quot;,&quot;B&quot;]</code><br> 上面两种做法都可以的，同理选择一个区域<br> <code>data.ix[1:3,1:3]</code><br> <code>data.ix[&#39;b&#39;:&#39;c&#39;,&#39;B&#39;:&#39;C&#39;]</code></p>
 </li>
-<li><p><strong>标签格式设置</strong> 设置需要展示的信息格式<br>position   <em>设置标签在图形里还是外</em><br>font_size            <em>设置标签字体大小</em><br>font_weight   <em>设置标签字体形式</em><br>color        <em>设置标签字体颜色</em><br>formatter=’{b}:{c}’    <em>设置标签展示格式（b为索引，c为数值)</em>  </p>
+<li><p>apply,map,applyma方法的区别:</p>
+<ul>
+<li><p>map(function, list)<br>map()是 Python 内置的高阶函数，它接收一个函数 f() 和一个 list，并通过把函数 f 依次作用在 list 的每个元素上，得到一个新的 list 并返回。(这个函数与 R 中的 lapply 非常相似)</p>
 </li>
-<li><p><strong>全局设置</strong><br> x/y axis_opts     <em>关于坐标轴的设置</em><br> title_opts        <em>关于标题的设置</em><br> visualmap_opts   <em>关于视觉映像的设置</em></p>
+<li><p>DataFrame.apply(func, axis=0, broadcast=False, raw=False, reduce=None, args=(), **kwds)<br>函数的传入参数根据axis来定，比如axis = 1，就会把一行数据作为Series的数据结构传入给自己实现的函数中，我们在函数中实现对Series不同属性之间的计算，返回一个结果，则apply函数会自动遍历每一行DataFrame的数据，最后将所有结果组合成一个Series数据结构并返回。</p>
+</li>
+<li><p>DataFrame.applymap(func)<br>将某个函数对一个Dataframe按元素(每行每列的每一个元素)进行转换.<br>简单来说，这个方法就是要对整个DataFrame进行某种Function的转换.</p>
+<p>三种方法之间的比较:</p>
 </li>
 </ul>
+<p> <em>map()</em><br> map()： 一般适用于对某一个series按元素，执行function，并对元素进行转换</p>
+<ul>
+<li>关注对象：Series对象中的每一个元素，是python自带的方法</li>
+<li>优点：只关注对一个Series执行</li>
+<li>缺点：扩展性不大，调用的function，不能传入额外的参数</li>
+</ul>
+<p> <em>apply()</em><br> apply()：一般适用于DataFrame 的某一行或某一列元素</p>
+<ul>
+<li>关注对象：只关注对一个DataFrame的行或列执行</li>
+<li>优点：相比map来说，扩展性更好，可以为传入的function传入更多的参数用于转换（案例中已经详细写出）</li>
+<li>缺点：所有操作均为按行或者列.一旦涉及到需要对每一个元素进行单独判断的操作，则apply也无能为力.</li>
+</ul>
+<p> <em>mapapply()</em><br> applymap()：用于dataframe上，是元素级别的操作；</p>
+<ul>
+<li>关注对象：DataFrame的每一个元素</li>
+<li>优点：因为是元素级别的操作，所以可以使用任何向量化或者非向量化的方法，对DataFrame 中的- 元素进行转换</li>
+<li>缺点：正是因为是按元素（ element-wise ），所以效率肯定相对apply来说较低</li>
+</ul>
+</li>
+<li><p>replace函数：<br> 基本用法：对象.replace(rgExp,replaceText,max)<br> 其中，rgExp和replaceText是必须要有的，max是可选的参数，可以不加。<br> rgExp是指 String 对象或文字；replaceText是一个String 对象或字符串文字；max是一个数字。对于一个对象，在对象的每个rgExp都替换成replaceText，从左到右最多max次。其中前两个参数可以采用字典的形式写：replace_dic是一个字典</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> replace_dic.items():</span><br><span class="line">    val = val.replace(k,v)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>DataFrame的iterrows()方法<br> iterrows是对dataframe行进行迭代的一个生成器，它返回每行的索引及包含行本身的对象(列名和值)<br> 经常使用的代码是：<br> <code>for i,r in df.iterrows():</code><br> <code>print(i,r)</code></p>
+</li>
+<li><p>切片 [::-1]和[-1]<br> 切片逗号之前为行，逗号之后为列，每一个维度可有三个参数，start stop step 其中负数表示为逆向切片<br> [::-1]顺序相反操作<br> <code>a=[1,2,3,4,5]</code><br> <code>b=a[::-1]</code><br> 结果是：<br> <code>[5, 4, 3, 2, 1]</code></p>
+</li>
+<li><p>sort与sorted函数<br> sorted(iterable, cmp=None, key=None, reverse=False)<br> 一般使用的参数是key和reverse，而并选择用cmp，因为一般情况下前一种情况的效率更高</p>
+<ul>
+<li>对于一个无序的列表a，调用a.sort()，对a进行排序后返回a，sort()函数改变了原列表内容。</li>
+<li>而对于同样一个无序的列表a，调用sorted(a)，对a进行排序后返回一个新的列表，而对a不产生影响。</li>
+<li>另外一个区别是， list.sort() 方法只是为列表定义的，而 sorted() 函数可以接受任何可迭代对象。</li>
+</ul>
+</li>
+</ol>
 <hr>
-<h3 id="关于视觉映射"><a href="#关于视觉映射" class="headerlink" title="关于视觉映射"></a>关于视觉映射</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/echarts/echarts-visualmap.html">echarts视觉映射</a></p>
-<hr>
-<h3 id="bar图代码"><a href="#bar图代码" class="headerlink" title="bar图代码"></a>bar图代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">bar = Bar()</span><br><span class="line">bar.add_xaxis([x <span class="keyword">for</span> x, y <span class="keyword">in</span> t])</span><br><span class="line">bar.add_yaxis(<span class="string">&quot;&quot;</span>, [y <span class="keyword">for</span> x, y <span class="keyword">in</span> t],<span class="comment">#图元样式设置</span></span><br><span class="line">              itemstyle_opts=&#123;<span class="string">&#x27;normal&#x27;</span>: &#123;<span class="string">&#x27;borderColor&#x27;</span>: <span class="string">&#x27;#56c317&#x27;</span>,<span class="comment">#描边颜色</span></span><br><span class="line">                                         <span class="string">&#x27;shadowColor&#x27;</span>: <span class="string">&#x27;#1773c3&#x27;</span>,<span class="comment">#阴影颜色</span></span><br><span class="line">                                         <span class="string">&#x27;shadowBlur&#x27;</span>: <span class="number">20</span>,<span class="comment">#阴影模糊级数</span></span><br><span class="line">                                         <span class="string">&#x27;opacity&#x27;</span>: <span class="number">0.8</span><span class="comment">#图形透明度</span></span><br><span class="line">                                         &#125;</span><br><span class="line">                              &#125;)</span><br><span class="line"><span class="comment"># 标签格式设置</span></span><br><span class="line">bar.set_series_opts(label_opts=opts.LabelOpts(position=<span class="string">&quot;insideLeft&quot;</span>,<span class="comment">#标签在图形里</span></span><br><span class="line">                                              font_size=<span class="number">10</span>,<span class="comment">#标签大小</span></span><br><span class="line">                                              font_weight=<span class="string">&#x27;lighter&#x27;</span>,<span class="comment">#标签字体</span></span><br><span class="line">                                              color=<span class="string">&#x27;#ebff12&#x27;</span>,</span><br><span class="line">                                              formatter=<span class="string">&#x27;&#123;b&#125;:&#123;c&#125;&#x27;</span>))<span class="comment">#标签格式</span></span><br><span class="line"><span class="comment"># 全局配置项</span></span><br><span class="line">bar.set_global_opts(xaxis_opts=opts.AxisOpts(is_show=<span class="literal">False</span>, max_=<span class="number">1e7</span>),<span class="comment">#不显示x,y轴</span></span><br><span class="line">                    yaxis_opts=opts.AxisOpts(is_show=<span class="literal">False</span>),</span><br><span class="line">                    title_opts=opts.TitleOpts(title=<span class="string">&quot;TOP 10&quot;</span>, pos_top=<span class="string">&#x27;55%&#x27;</span>, pos_left=<span class="string">&#x27;5%&#x27;</span>,</span><br><span class="line">                                              title_textstyle_opts=opts.TextStyleOpts(font_size=<span class="number">12</span>)),<span class="comment">#标题设置</span></span><br><span class="line">                    visualmap_opts=opts.VisualMapOpts(is_show=<span class="literal">False</span>,<span class="comment">#视觉映像设置</span></span><br><span class="line">                                                      max_=<span class="number">1e6</span>,</span><br><span class="line">                                                      is_piecewise=<span class="literal">False</span>,<span class="comment">#不设置为分段</span></span><br><span class="line">                                                      dimension=<span class="number">0</span>,</span><br><span class="line">                                                      range_color=[<span class="string">&#x27;rgba(219,112,147,0.4)&#x27;</span>, <span class="string">&#x27;rgba(238,25,27,0.9)&#x27;</span>, <span class="string">&#x27;rgba(238,25,27,1)&#x27;</span>]))</span><br><span class="line"><span class="comment"># 转换xy轴</span></span><br><span class="line">bar.reversal_axis()</span><br></pre></td></tr></table></figure>
  
       <!-- reward -->
       
@@ -177,12 +213,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/10/09/pyecharts/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/10/09/python%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">数据可视化</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
 
     </footer>
   </div>
@@ -190,19 +226,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2020/10/09/python%E5%AD%A6%E4%B9%A0/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            python学习
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/09/20/win%E4%B8%BB%E6%9C%BA%E4%B8%8Elinu%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/" class="article-nav-link">
+      <a href="/2020/10/09/pyecharts/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">win主机与linu虚拟机文件共享</div>
+        <div class="article-nav-title">pyecharts</div>
       </a>
     
   </nav>
